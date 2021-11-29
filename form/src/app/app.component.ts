@@ -1,14 +1,15 @@
 import { Component } from '@angular/core';
+// import { getMaxListeners } from 'process';
+import {Friend} from './friend';
+
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  // title = 'form';    
-}
-class NgForExampleComponent {
+export class AppComponent{
+  title = 'form';    
   languages=[
     {
       "language": "HTML"
@@ -26,5 +27,10 @@ class NgForExampleComponent {
       "language": "None"
     }
   ];
+
+ friendModel= new Friend('neha','honrao','nehalonkar27@gmail.com',888888888,'php');
+
 }
 
+
+  

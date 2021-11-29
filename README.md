@@ -9,3 +9,5 @@
 - HTML structure contains in template-app.component.html while all     your JS contain in component-app.component.ts.
 - Created form which contain information about friend-firstname, lastname,email,phone-number,address and favourite language etc...
 - Understanding concept of "NgFor directive".Its a structural directive, meaning that it changes the structure of the DOM. 
+- Used 'NgFor directive' for selecting options.
+- NgModel is used for binding data to model.
