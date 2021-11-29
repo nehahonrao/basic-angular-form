@@ -16,35 +16,69 @@
 <body>
   <div class="container">
     <h1 style="text-align: center;">SlamBook</h1>
-    <form method="post" #formName="ngForm">
+    <form method="post" action="app.component.html" #formName="ngForm">
 
       <div class="form-row">
         <div class="form-group col-md-6">
           <label for="street">FirstName</label>
-          <input type="text" name="firstname" id="firstname" class="form-control" #firstname="ngModel" [(ngModel)]="friendModel.firstname">
+          <input type="text" name="firstname" id="firstname" class="form-control" #firstname="ngModel" [(ngModel)]="friendModel.firstname"  required>
+          <div *ngIf="firstname.invalid && (firstname.dirty || firstname.touched)"
+          class="alert"></div>
+      
+        <div *ngIf="firstname.errors?.['required']">
+          FirstName is required.
         </div>
+        </div>
+        
         <div class="form-group col-md-6">
           <label for="streetnumber">LastName</label>
-          <input type="text" id="lastname" name="lastname" class="form-control" #lastname="ngModel" [(ngModel)]="friendModel.lastname">
+          <input required type="text" id="lastname" name="lastname" class="form-control" #lastname="ngModel" [(ngModel)]="friendModel.lastname">
+          
+          <div *ngIf="lastname.invalid && (lastname.dirty || lastname.touched)"
+          class="alert"></div>
+          <div *ngIf="lastname.errors?.['required']">
+          LastName is required.
+          </div>
         </div>
       </div>
 
       <div class="form-row">
         <div class="form-group col-md-6">
           <label for="email">E-mail:</label>
-          <input type="email" id="email" name="email" class="form-control" #email="ngModel" [(ngModel)]="friendModel.email" />
+          <input required type="email" id="email" name="email" class="form-control" #email="ngModel" [(ngModel)]="friendModel.email" />
+          
+          <div *ngIf="email.invalid && (email.dirty || email.touched)"
+          class="alert"></div>
+      
+        <div *ngIf="email.errors?.['required']">
+          email address is required.
+        </div>
         </div>
         <div class="form-group col-md-6">
           <label for="PhoneNumber">Phone-Number</label>
-          <input type="number" id="PhoneNumber" name="PhoneNumber" class="form-control" #PhoneNumber="ngModel" [(ngModel)]="friendModel.phonenumber" />
+          <input required type="number" id="PhoneNumber" name="PhoneNumber" class="form-control" #PhoneNumber="ngModel" [(ngModel)]="friendModel.phonenumber" />
+          
+          <div *ngIf="PhoneNumber.invalid && (PhoneNumber.dirty || PhoneNumber.touched)"
+          class="alert"></div>
+      
+        <div *ngIf="PhoneNumber.errors?.['required']">
+          Phone-Number is required.
+        </div>
         </div>
       </div>
       
       <div>
         <label for="language" style="font-size: large;">Choose Your Favourite Language  :</label>
-        <select name="language" id="language" #language="ngModel" [(ngModel)]="friendModel.language">
+        <select required name="language" id="language" #language="ngModel" [(ngModel)]="friendModel.language">
           <option *ngFor="let lang of languages">{{lang.language}}</option>
         </select>
+        
+        <div *ngIf="language.invalid && (language.dirty || language.touched)"
+        class="alert"></div>
+    
+      <div *ngIf="language.errors?.['required']">
+        Choose your Favourite language.
+      </div>
       </div>
   <button type="submit" class="btn btn-primary">Submit</button>
     </form>

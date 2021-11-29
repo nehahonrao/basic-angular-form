@@ -28,7 +28,7 @@ export class AppComponent{
     }
   ];
 
- friendModel= new Friend('neha','honrao','nehalonkar27@gmail.com',888888888,'php');
+ friendModel= new Friend(' ',' ',' ',11111 ,' ');
 
 }
 
