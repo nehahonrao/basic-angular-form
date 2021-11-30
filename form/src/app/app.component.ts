@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 // import { getMaxListeners } from 'process';
 import {Friend} from './friend';
+import {NgForm} from '@angular/forms';
 
 
 @Component({
@@ -28,7 +29,12 @@ export class AppComponent{
     }
   ];
 
- friendModel= new Friend(' ',' ',' ',11111 ,' ');
+ friendModel= new Friend(' ',' ',' ',' ' ,' ');
+
+ onSubmit(valform: NgForm) {
+  console.log(this.friendModel);  // { first: '', last: '' }
+  
+}
 
 }
 

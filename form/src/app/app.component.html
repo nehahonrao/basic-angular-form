@@ -1,5 +1,4 @@
 {{ friendModel | json }}
-
 <!doctype html>
 <html lang="en">
 
@@ -16,7 +15,7 @@
 <body>
   <div class="container">
     <h1 style="text-align: center;">SlamBook</h1>
-    <form method="post" action="app.component.html" #formName="ngForm">
+    <form method="post" action="app.component.html" #valform="ngForm" (ngSubmit)="onSubmit(valform)" novalidate>
 
       <div class="form-row">
         <div class="form-group col-md-6">
