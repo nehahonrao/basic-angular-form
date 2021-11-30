@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 // import { getMaxListeners } from 'process';
 import {Friend} from './friend';
 import {NgForm} from '@angular/forms';
+import { AddFriendService } from './add-friend.service';
 
 
 @Component({
@@ -29,14 +30,21 @@ export class AppComponent{
     }
   ];
 
- friendModel= new Friend(' ',' ',' ',' ' ,' ');
+ friendModel= new Friend(' ',' ',' ',' ' ,' '); 
+ message: any = [];
+  
+ constructor(private addFriendService: AddFriendService) {}
+
+ ngOnInit(): void {
+  this.addFriendService.getFriend().subscribe((message) => (this.message = message));
+}
 
  onSubmit(valform: NgForm) {
-  console.log(this.friendModel);  // { first: '', last: '' }
-  
+  this.addFriendService.addFriend(this.friendModel,' ')
+  .subscribe((message: Friend) => {console.log("it worked")}, error =>{console.log("it didn't work")});
+  // this.addFriendService.postFriend().subscribe((message) => (this.message = message));
 }
 
+
 }
 
-
-  
