@@ -19,7 +19,7 @@
 - In AddFriendService class,added http as private property like: constructor(private http: HttpClient).Here HttpClient is typehint.
 - Imported HttpClientModule in app.module.ts and added in import array.
 
-## Day 3:
+## Day 3:🙂
 - Learn how to work with http post request and http get request.
 - To post data to server i have cteated addFriend method,given parameter as friend with typehint Friend.
 - In this method,wrote post request which looks like:this.http.post(url, data).Here,http is property of httpClient.
