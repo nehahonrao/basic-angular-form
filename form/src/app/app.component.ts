@@ -12,7 +12,8 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent{
-  title = 'form';    
+  title = 'form';  
+  test = false  
   languages=[
     {
       "language": "HTML"
@@ -43,6 +44,7 @@ export class AppComponent{
  onSubmit(valform: NgForm) {
   this.addFriendService.addFriend(this.friendModel,this.addFriendService.url)
   .subscribe((message: Friend) => {console.log("it worked")}, error =>{console.log("it didn't work")});
+   this.test = true;
   }
 
 

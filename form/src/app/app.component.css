@@ -5,3 +5,26 @@
   .ng-valid[required], .ng-valid.required  {
     border: 5px solid #42A948; /* green */
   }
+  #btn{
+    text-align:center;
+    font-size: larger;
+    margin-left: 500px;
+    
+  }
+  .friend{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+    font-weight: bold;
+    background-color: rgb(179, 200, 236);
+    
+  }
+  #right{
+    border: 2px solid black;
+    margin-top: 20px;
+    background-color:lightgoldenrodyellow;
+    
+  }
+  .info{
+    font-weight: bold;
+  }

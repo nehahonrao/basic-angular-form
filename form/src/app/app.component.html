@@ -1,4 +1,4 @@
-{{ friendModel | json }}
+<!-- {{ friendModel | json }} -->
 <!doctype html>
 <html lang="en">
 
@@ -14,8 +14,7 @@
 
 <body>
   <div class="container">
-    <li *ngFor="let friend of message.message"> {{friend.firstname}}  {{ friend.lastname }}  {{ friend.email }}  {{ friend.phonenumber}}  {{ friend.language }}</li>
-    <h1 style="text-align: center;">SlamBook</h1>
+       <h1 style="text-align: center;">SlamBook</h1>
     <form method="post" action="app.component.html" #valform="ngForm" (ngSubmit)="onSubmit(valform)" novalidate>
 
       <div class="form-row">
@@ -80,11 +79,28 @@
         Choose your Favourite language.
       </div>
       </div>
-  <button type="submit" class="btn btn-primary" >Submit</button>
-    </form>
+  <button type="submit" class="btn btn-primary" id="btn">Submit</button>
 
+</form>
+</div>
+<div class="col-6" id="right" *ngIf="test">
+  <div>
+
+    <h2 class="friend">FriendsList</h2>
+  </div>
+  <div id="firend-information">
 
   </div>
+  <div *ngFor="let friend of message.message">
+    <h3 class="text-center">{{friend.firstname}}   {{friend.lastname}}</h3>
+    <p class="info">Email: {{friend.email}} </p>
+    <p class="info">Phone: {{friend.phonenumber}}</p>
+    <p class="info">Favourite language:  {{friend.language}} </p>
+    <hr>
+  </div>
+</div>
+
+
 
 
 </body>
