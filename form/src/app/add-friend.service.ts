@@ -1,27 +1,23 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import {Friend} from './friend';
+import { Friend} from './friend';
 import { Observable } from 'rxjs';
 import { MessageBundle } from '@angular/compiler';
+import { AppComponent} from './app.component';
 @Injectable({
   providedIn: 'root'
 })
 export class AddFriendService {
   
+  url = 'http://localhost:6969/friends'; 
   constructor(private http: HttpClient) { }
 
   addFriend(friend:Friend,url:string) :Observable<any>{
-    const url1 = 'http://localhost:6969/friends';
-    return this.http.post(url, friend);
-    console.log(friend);
-  }
-  postFriend(friend:Friend):Observable<any> {
-    const url1 = 'http://localhost:6969/friends';
-    return this.http.post(url1,friend);
+    return this.http.post(url,friend)
+  
   }
 
-  getFriend():Observable<any> {
-    const url = 'http://localhost:6969/friends';
+  getFriend(url: string):Observable<any> {
     return this.http.get(url);
   }
 }

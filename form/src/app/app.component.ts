@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import {Friend} from './friend';
 import {NgForm} from '@angular/forms';
 import { AddFriendService } from './add-friend.service';
+import { HttpClient } from '@angular/common/http';
 
 
 @Component({
@@ -36,14 +37,13 @@ export class AppComponent{
  constructor(private addFriendService: AddFriendService) {}
 
  ngOnInit(): void {
-  this.addFriendService.getFriend().subscribe((message) => (this.message = message));
+  this.addFriendService.getFriend(this.addFriendService.url).subscribe((message) => (this.message = message));
 }
 
  onSubmit(valform: NgForm) {
-  this.addFriendService.addFriend(this.friendModel,' ')
+  this.addFriendService.addFriend(this.friendModel,this.addFriendService.url)
   .subscribe((message: Friend) => {console.log("it worked")}, error =>{console.log("it didn't work")});
-  // this.addFriendService.postFriend().subscribe((message) => (this.message = message));
-}
+  }
 
 
 }
